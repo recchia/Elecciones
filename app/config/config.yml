@@ -66,3 +66,6 @@ fos_user:
     registration:
         confirmation:
             enabled:    true
+    from_email:
+        address:        intranet.inass@inass.gob.ve
+        sender_name:    Intranet Inass
