@@ -18,7 +18,7 @@
             "require": {
                 "php": ">=5.3.2"
             },
-            "time": "2012-09-20 05:55:18",
+            "time": "2012-09-20 10:25:18",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -87,7 +87,7 @@
                 "php": ">=5.3.2",
                 "doctrine/common": "2.3.*"
             },
-            "time": "2012-09-20 05:56:37",
+            "time": "2012-09-20 10:26:37",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -160,7 +160,7 @@
             "suggest": {
                 "doctrine/orm": "The Doctrine ORM integration is optional in the bundle."
             },
-            "time": "2012-09-07 21:18:21",
+            "time": "2012-09-08 01:48:21",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -222,7 +222,7 @@
             "suggest": {
                 "symfony/yaml": "If you want to use YAML Metadata Mapping Driver"
             },
-            "time": "2012-09-20 06:03:34",
+            "time": "2012-09-20 10:33:34",
             "bin": [
                 "bin/doctrine",
                 "bin/doctrine.php"
@@ -293,7 +293,7 @@
                 "symfony/mongodb-odm-bundle": "*",
                 "doctrine/couchdb-odm-bundle": "*"
             },
-            "time": "2011-12-15 15:47:55",
+            "time": "2011-12-15 20:17:55",
             "type": "symfony-bundle",
             "installation-source": "dist",
             "autoload": {
@@ -344,7 +344,7 @@
                 "symfony/framework-bundle": "2.*",
                 "jms/cg": "1.0.0"
             },
-            "time": "2012-01-02 20:50:26",
+            "time": "2012-01-03 01:20:26",
             "type": "symfony-bundle",
             "installation-source": "dist",
             "autoload": {
@@ -386,7 +386,7 @@
             "require": {
                 "php": ">=5.3.0"
             },
-            "time": "2012-01-02 20:40:52",
+            "time": "2012-01-03 01:10:52",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -445,7 +445,7 @@
                 "doctrine/doctrine-bundle": "*",
                 "doctrine/orm": "*"
             },
-            "time": "2012-09-21 08:56:32",
+            "time": "2012-09-21 13:26:32",
             "type": "symfony-bundle",
             "installation-source": "dist",
             "autoload": {
@@ -488,7 +488,7 @@
             "require": {
                 "php": ">=5.3.0"
             },
-            "time": "2012-01-02 21:32:49",
+            "time": "2012-01-03 02:02:49",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -551,7 +551,7 @@
                 "symfony/form": "*",
                 "symfony/validator": "*"
             },
-            "time": "2012-09-06 16:12:03",
+            "time": "2012-09-06 20:42:03",
             "type": "symfony-bundle",
             "installation-source": "dist",
             "autoload": {
@@ -671,7 +671,7 @@
                 "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
                 "ext-mongo": "Allow sending log messages to a MongoDB server"
             },
-            "time": "2012-08-29 11:53:20",
+            "time": "2012-08-29 16:23:20",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -720,7 +720,7 @@
             "require": {
                 "symfony/framework-bundle": "2.1.*"
             },
-            "time": "2012-09-11 05:10:08",
+            "time": "2012-09-11 09:40:08",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -767,7 +767,7 @@
                 "symfony/framework-bundle": "2.1.*",
                 "doctrine/common": ">=2.1,<2.4-dev"
             },
-            "time": "2012-08-29 10:02:19",
+            "time": "2012-08-29 14:32:19",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -818,7 +818,7 @@
                 "doctrine/orm": ">=2.1,<2.4-dev",
                 "twig/twig": ">=1.8,<2.0-dev"
             },
-            "time": "2012-08-28 07:16:11",
+            "time": "2012-08-28 11:46:11",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -859,7 +859,7 @@
             "require": {
                 "php": ">=5.2.4"
             },
-            "time": "2012-07-13 16:46:37",
+            "time": "2012-07-13 21:16:37",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -923,7 +923,7 @@
             "suggest": {
                 "symfony/twig-bundle": "2.1.*"
             },
-            "time": "2012-08-28 10:22:44",
+            "time": "2012-08-28 14:52:44",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -980,7 +980,7 @@
                 "symfony/yaml": "2.1.*",
                 "symfony/config": "2.1.*"
             },
-            "time": "2012-08-21 14:05:54",
+            "time": "2012-08-21 18:35:54",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1034,7 +1034,7 @@
                 "symfony/http-kernel": "2.1.*",
                 "symfony/config": "2.1.*"
             },
-            "time": "2012-08-28 10:21:09",
+            "time": "2012-08-28 14:51:09",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1123,7 +1123,7 @@
                 "propel/propel1": "dev-master",
                 "monolog/monolog": "dev-master"
             },
-            "time": "2012-09-20 07:13:00",
+            "time": "2012-09-20 11:43:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1220,7 +1220,7 @@
             "require": {
                 "php": ">=5.2.4"
             },
-            "time": "2012-08-25 17:32:57",
+            "time": "2012-08-25 22:02:57",
             "type": "library",
             "extra": {
                 "branch-alias": {
