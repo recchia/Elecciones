@@ -1,5 +1,5 @@
 {
-    "hash": "11cb8a3206c1a5b0f5fd8d85198a5195",
+    "hash": "2b6b5e3e87a4142b279cc4999ad732a8",
     "packages": [
         {
             "name": "doctrine/common",
@@ -18,7 +18,7 @@
             "require": {
                 "php": ">=5.3.2"
             },
-            "time": "2012-09-20 10:25:18",
+            "time": "2012-09-20 14:55:18",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -87,7 +87,7 @@
                 "php": ">=5.3.2",
                 "doctrine/common": "2.3.*"
             },
-            "time": "2012-09-20 10:26:37",
+            "time": "2012-09-20 14:56:37",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -160,7 +160,7 @@
             "suggest": {
                 "doctrine/orm": "The Doctrine ORM integration is optional in the bundle."
             },
-            "time": "2012-09-08 01:48:21",
+            "time": "2012-09-08 06:18:21",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -222,7 +222,7 @@
             "suggest": {
                 "symfony/yaml": "If you want to use YAML Metadata Mapping Driver"
             },
-            "time": "2012-09-20 10:33:34",
+            "time": "2012-09-20 15:03:34",
             "bin": [
                 "bin/doctrine",
                 "bin/doctrine.php"
@@ -357,7 +357,7 @@
                 "symfony/framework-bundle": "2.*",
                 "jms/cg": "1.0.0"
             },
-            "time": "2012-01-03 01:20:26",
+            "time": "2012-01-03 05:50:26",
             "type": "symfony-bundle",
             "installation-source": "dist",
             "autoload": {
@@ -372,7 +372,7 @@
                 {
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -399,7 +399,7 @@
             "require": {
                 "php": ">=5.3.0"
             },
-            "time": "2012-01-03 01:10:52",
+            "time": "2012-01-03 05:40:52",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -414,7 +414,7 @@
                 {
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "http://jmsyst.com",
+                    "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -458,7 +458,7 @@
                 "doctrine/doctrine-bundle": "*",
                 "doctrine/orm": "*"
             },
-            "time": "2012-09-21 13:26:32",
+            "time": "2012-09-21 17:56:32",
             "type": "symfony-bundle",
             "installation-source": "dist",
             "autoload": {
@@ -501,7 +501,7 @@
             "require": {
                 "php": ">=5.3.0"
             },
-            "time": "2012-01-03 02:02:49",
+            "time": "2012-01-03 06:32:49",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -516,7 +516,7 @@
                 {
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "http://jmsyst.com",
+                    "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -564,7 +564,7 @@
                 "symfony/form": "*",
                 "symfony/validator": "*"
             },
-            "time": "2012-09-06 20:42:03",
+            "time": "2012-09-07 01:12:03",
             "type": "symfony-bundle",
             "installation-source": "dist",
             "autoload": {
@@ -579,7 +579,7 @@
                 {
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -591,6 +591,108 @@
                 "security",
                 "secure",
                 "expression"
+            ]
+        },
+        {
+            "name": "knplabs/knp-components",
+            "version": "v1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KnpLabs/knp-components",
+                "reference": "v1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/KnpLabs/knp-components/zipball/v1.1",
+                "reference": "v1.1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "time": "2012-03-23 15:06:44",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-0": {
+                    "Knp\\Component": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "KnpLabs Team",
+                    "homepage": "http://knplabs.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://github.com/KnpLabs/knp-components/contributors"
+                }
+            ],
+            "description": "Knplabs component library",
+            "homepage": "http://github.com/KnpLabs/knp-components",
+            "keywords": [
+                "pager",
+                "components",
+                "knp",
+                "knplabs",
+                "paginator"
+            ]
+        },
+        {
+            "name": "knplabs/knp-paginator-bundle",
+            "version": "dev-master",
+            "target-dir": "Knp/Bundle/PaginatorBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KnpLabs/KnpPaginatorBundle",
+                "reference": "de439d2816fe984dbe0c438fd4d0d7c67748c5ff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/KnpLabs/KnpPaginatorBundle/zipball/de439d2816fe984dbe0c438fd4d0d7c67748c5ff",
+                "reference": "de439d2816fe984dbe0c438fd4d0d7c67748c5ff",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/framework-bundle": "2.*,<2.2",
+                "knplabs/knp-components": ">=1.1",
+                "twig/twig": ">=1.5"
+            },
+            "time": "1343676956",
+            "type": "symfony-bundle",
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Knp\\Bundle\\PaginatorBundle": ""
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "KnpLabs Team",
+                    "homepage": "http://knplabs.com"
+                },
+                {
+                    "name": "Symfony2 Community",
+                    "homepage": "http://github.com/KnpLabs/KnpPaginatorBundle/contributors"
+                }
+            ],
+            "description": "Paginator bundle for Symfony2 to automate pagination and simplify sorting and other features",
+            "homepage": "http://github.com/KnpLabs/KnpPaginatorBundle",
+            "keywords": [
+                "Symfony2",
+                "pager",
+                "knp",
+                "knplabs",
+                "paginator",
+                "pagination",
+                "bundle"
             ]
         },
         {
@@ -684,7 +786,7 @@
                 "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
                 "ext-mongo": "Allow sending log messages to a MongoDB server"
             },
-            "time": "2012-08-29 16:23:20",
+            "time": "2012-08-29 20:53:20",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -733,7 +835,7 @@
             "require": {
                 "symfony/framework-bundle": "2.1.*"
             },
-            "time": "2012-09-11 09:40:08",
+            "time": "2012-09-11 14:10:08",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -780,7 +882,7 @@
                 "symfony/framework-bundle": "2.1.*",
                 "doctrine/common": ">=2.1,<2.4-dev"
             },
-            "time": "2012-08-29 14:32:19",
+            "time": "2012-08-29 19:02:19",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -831,7 +933,7 @@
                 "doctrine/orm": ">=2.1,<2.4-dev",
                 "twig/twig": ">=1.8,<2.0-dev"
             },
-            "time": "2012-08-28 11:46:11",
+            "time": "2012-08-28 16:16:11",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -872,7 +974,7 @@
             "require": {
                 "php": ">=5.2.4"
             },
-            "time": "2012-07-13 21:16:37",
+            "time": "2012-07-14 01:46:37",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -936,7 +1038,7 @@
             "suggest": {
                 "symfony/twig-bundle": "2.1.*"
             },
-            "time": "2012-08-28 14:52:44",
+            "time": "2012-08-28 19:22:44",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -993,7 +1095,7 @@
                 "symfony/yaml": "2.1.*",
                 "symfony/config": "2.1.*"
             },
-            "time": "2012-08-21 18:35:54",
+            "time": "2012-08-21 23:05:54",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1047,7 +1149,7 @@
                 "symfony/http-kernel": "2.1.*",
                 "symfony/config": "2.1.*"
             },
-            "time": "2012-08-28 14:51:09",
+            "time": "2012-08-28 19:21:09",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1136,7 +1238,7 @@
                 "propel/propel1": "dev-master",
                 "monolog/monolog": "dev-master"
             },
-            "time": "2012-09-20 11:43:00",
+            "time": "2012-09-20 16:13:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1233,7 +1335,7 @@
             "require": {
                 "php": ">=5.2.4"
             },
-            "time": "2012-08-25 22:02:57",
+            "time": "2012-08-26 02:32:57",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1274,6 +1376,7 @@
     "stability-flags": {
         "twig/extensions": 20,
         "kriswallsmith/assetic": 20,
-        "friendsofsymfony/user-bundle": 20
+        "friendsofsymfony/user-bundle": 20,
+        "knplabs/knp-paginator-bundle": 20
     }
 }

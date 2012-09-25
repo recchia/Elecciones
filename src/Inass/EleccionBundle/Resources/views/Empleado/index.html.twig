@@ -1,0 +1,32 @@
+{% extends "::appLayout.html.twig" %}
+
+
+{% block content %}
+<h1>Listado de Empleados</h1>
+
+<table>
+<tr>
+{# sorting of properties based on query components #}
+    <th></th>
+    <th>{{ pagination.sortable('Cédula', 'e.cedula')|raw }}</th>
+    <th{% if pagination.isSorted('e.nombres') %} class="sorted"{% endif %}>{{ pagination.sortable('Nombres', 'a.nombres')|raw }}</th>
+    <th>{{ pagination.sortable('Apellidos', 'e.apellidos')|raw }}</th>
+    <th>Estado</th>
+</tr>
+
+{# table body #}
+{% for empleado in pagination %}
+<tr {% if loop.index is odd %}class="color"{% endif %}>
+    <td><a href="{{ path('empleado_show', { 'id': empleado.id }) }}">mostrar</a></td>
+    <td>{{ empleado.cedula }}</td>
+    <td>{{ empleado.nombres }}</td>
+    <td>{{ empleado.apellidos }}</td>
+    <td>{{ empleado.estado }}</td>
+</tr>
+{% endfor %}
+</table>
+{# display navigation #}
+<div class="navigation">
+    {{ pagination.render()|raw }}
+</div>
+{% endblock %}

@@ -69,3 +69,14 @@ fos_user:
     from_email:
         address:        intranet.inass@inass.gob.ve
         sender_name:    Intranet Inass
+
+knp_paginator:
+    page_range: 10                      # default page range used in pagination control
+    default_options:
+        page_name: pagina                # page query parameter name
+        sort_field_name: orden          # sort field query parameter name
+        sort_direction_name: direccion # sort direction query parameter name
+        #distinct: true                 # ensure distinct results, useful when ORM queries are using GROUP BY statements
+    template:
+        pagination: KnpPaginatorBundle:Pagination:sliding.html.twig     # sliding pagination controls template
+        sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig # sort link template

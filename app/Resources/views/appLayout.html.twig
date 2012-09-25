@@ -2,6 +2,7 @@
 
 {% block stylesheets %}
     <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('css/appLayout.css') }}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('css/forms.css') }}" />
     <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('css/styles/kendo.common.min.css') }}" />
     <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('css/styles/kendo.default.min.css') }}" />
     <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -15,22 +16,35 @@
         <strong>Header:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tortor. Praesent dictum, libero ut tempus dictum, neque eros elementum mauris, quis mollis arcu velit ac diam. Etiam neque. Quisque nec turpis. Aliquam arcu nulla, dictum et, lacinia a, mollis in, ante. Sed eu felis in elit tempor venenatis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut ultricies porttitor purus. Proin non tellus at ligula fringilla tristique. Fusce vehicula quam. Curabitur vel tortor vitae pede imperdiet ultrices. Sed tortor.
     </header><!-- #header-->
     <nav>
+        {% if is_granted('ROLE_USER') %}
         <ul id="miMenu">
             <li>
                 Menú Principal
                 <ul>
                     <li><a href="{{ path("homepage") }}">Pantalla Principal</a></li>
-                    <li><a href="">Salir del Sistema</a></li>
+                    <li><a href="{{ path("fos_user_change_password") }}">Cambiar Contraseña</a></li>
+                    <li><a href="{{ path("fos_user_security_logout") }}">Salir del Sistema</a></li>
                 </ul>
             </li>
             <li>
                 Empleados
                 <ul>
-                    <li><a href="">Listar Empleados</a></li>
-                    <li><a href="">Crear Empleado</a></li>
+                    <li><a href="{{ path("empleado") }}">Listar Empleados</a></li>
+                    <li><a href="">Buscar Empleado</a></li>
                 </ul>
             </li>
         </ul>
+        {% else %}
+        <ul id="miMenu">
+            <li>
+                Menú Principal
+                <ul>
+                    <li><a href="{{ path("fos_user_security_login") }}">Ingresar</a></li>
+                    <li><a href="{{ path("fos_user_resetting_request") }}">Recuperar Contraseña</a></li>
+                </ul>
+            </li>
+        </ul>
+        {% endif %}
     </nav>
 
     <div id="content">

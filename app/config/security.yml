@@ -6,7 +6,6 @@ security:
     providers:
         fos_userbundle:
             id: fos_user.user_manager
-            #entity: { class: EleccionBundle:Usuario }
 
     encoders:
         FOS\UserBundle\Model\UserInterface: sha512
@@ -25,6 +24,7 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/, role: ROLE_USER }
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER

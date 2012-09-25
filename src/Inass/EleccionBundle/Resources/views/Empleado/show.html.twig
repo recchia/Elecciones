@@ -1,0 +1,39 @@
+{% extends "::appLayout.html.twig" %}
+
+
+{% block content %}
+<h1>Empleado</h1>
+
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>Cedula</th>
+            <td>{{ entity.cedula }}</td>
+        </tr>
+        <tr>
+            <th>Nombres</th>
+            <td>{{ entity.nombres }}</td>
+        </tr>
+        <tr>
+            <th>Apellidos</th>
+            <td>{{ entity.apellidos }}</td>
+        </tr>
+        <tr>
+            <th>Voto</th>
+            <td>{{ entity.voto }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('empleado') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}
