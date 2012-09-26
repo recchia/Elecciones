@@ -4,29 +4,32 @@
 {% block content %}
 <h1>Listado de Empleados</h1>
 
-<table>
-<tr>
+<table class="zebra">
+    <thead>
+        <tr>
 {# sorting of properties based on query components #}
-    <th></th>
-    <th>{{ pagination.sortable('Cédula', 'e.cedula')|raw }}</th>
-    <th{% if pagination.isSorted('e.nombres') %} class="sorted"{% endif %}>{{ pagination.sortable('Nombres', 'a.nombres')|raw }}</th>
-    <th>{{ pagination.sortable('Apellidos', 'e.apellidos')|raw }}</th>
-    <th>Estado</th>
-</tr>
+            <th></th>
+            <th>{{ pagination.sortable('Cédula', 'e.cedula')|raw }}</th>
+            <th{% if pagination.isSorted('e.nombres') %} class="sorted"{% endif %}>{{ pagination.sortable('Nombres', 'a.nombres')|raw }}</th>
+            <th>{{ pagination.sortable('Apellidos', 'e.apellidos')|raw }}</th>
+            <th>Estado</th>
+        </tr>
+   </thead>
+   <tfoot>
+    <tr>
+      <td colspan="5"><div class="navigation">{{ pagination.render()|raw }}</div></td>
+    </tr>
+  </tfoot>
 
 {# table body #}
 {% for empleado in pagination %}
-<tr {% if loop.index is odd %}class="color"{% endif %}>
-    <td><a href="{{ path('empleado_show', { 'id': empleado.id }) }}">mostrar</a></td>
-    <td>{{ empleado.cedula }}</td>
-    <td>{{ empleado.nombres }}</td>
-    <td>{{ empleado.apellidos }}</td>
-    <td>{{ empleado.estado }}</td>
-</tr>
+        <tr {% if loop.index is odd %}class="color"{% endif %}>
+            <td><a href="{{ path('empleado_show', { 'id': empleado.id }) }}"><img src="{{ asset('images/001_19.png') }}" /></a></td>
+            <td>{{ empleado.cedula|number_format(0, ',', '.') }}</td>
+            <td>{{ empleado.nombres }}</td>
+            <td>{{ empleado.apellidos }}</td>
+            <td>{{ empleado.estado }}</td>
+        </tr>
 {% endfor %}
-</table>
-{# display navigation #}
-<div class="navigation">
-    {{ pagination.render()|raw }}
-</div>
+</table>    
 {% endblock %}

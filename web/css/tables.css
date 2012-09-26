@@ -1,0 +1,57 @@
+/* 
+    Document   : tables
+    Created on : 26/09/2012, 05:19:06 PM
+    Author     : recchia
+    Description:
+        Purpose of the stylesheet follows.
+*/
+table {
+    border-spacing: 0;
+    width: 100%;
+    margin-bottom: 1.5em;
+}
+table a {
+    color: #F14C1F;
+}
+.zebra td, .zebra th {
+    border-bottom: 1px solid #F2F2F2;
+    padding: 10px;
+}
+.zebra tbody tr:nth-child(2n) {
+    background: none repeat scroll 0 0 #F5F5F5;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset;
+}
+.zebra th {
+    background-color: #EEEEEE;
+    background-image: -moz-linear-gradient(center top , #F5F5F5, #EEEEEE);
+    border-bottom: 1px solid #CCCCCC;
+    text-align: left;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.zebra th:first-child {
+    border-radius: 6px 0 0 0;
+}
+.zebra th:last-child {
+    border-radius: 0 6px 0 0;
+}
+.zebra th:only-child {
+    border-radius: 6px 6px 0 0;
+}
+.zebra tfoot td {
+    background-color: #F1F1F1;
+    border-bottom: 0 none;
+    border-top: 1px solid #FFFFFF;
+}
+.zebra tfoot td:first-child {
+    border-radius: 0 0 0 6px;
+}
+.zebra tfoot td:last-child {
+    border-radius: 0 0 6px 0;
+}
+.zebra tfoot td:only-child {
+    border-radius: 0 0 6px 6px;
+}
+
+.navigation {
+    text-align: center;
+}

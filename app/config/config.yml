@@ -71,7 +71,7 @@ fos_user:
         sender_name:    Intranet Inass
 
 knp_paginator:
-    page_range: 10                      # default page range used in pagination control
+    page_range: 20                      # default page range used in pagination control
     default_options:
         page_name: pagina                # page query parameter name
         sort_field_name: orden          # sort field query parameter name
