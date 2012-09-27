@@ -8,7 +8,7 @@
     <thead>
         <tr>
 {# sorting of properties based on query components #}
-            <th></th>
+            <th colspan="2"></th>
             <th>{{ pagination.sortable('Cédula', 'e.cedula')|raw }}</th>
             <th{% if pagination.isSorted('e.nombres') %} class="sorted"{% endif %}>{{ pagination.sortable('Nombres', 'a.nombres')|raw }}</th>
             <th>{{ pagination.sortable('Apellidos', 'e.apellidos')|raw }}</th>
@@ -17,19 +17,48 @@
    </thead>
    <tfoot>
     <tr>
-      <td colspan="5"><div class="navigation">{{ pagination.render()|raw }}</div></td>
+      <td colspan="6"><div class="navigation">{{ pagination.render()|raw }}</div></td>
     </tr>
   </tfoot>
 
 {# table body #}
 {% for empleado in pagination %}
         <tr {% if loop.index is odd %}class="color"{% endif %}>
-            <td><a href="{{ path('empleado_show', { 'id': empleado.id }) }}"><img src="{{ asset('images/001_19.png') }}" /></a></td>
+            <td id="row-{{ empleado.id }}">{% if empleado.voto %}<img src="{{ asset('images/001_18.png') }}" />{% else %}<a href="#" title="Marcar Voto" onclick="marcarVoto({{ empleado.id }},'{{ path("empleado_voto") }}','row-{{ empleado.id }}','<img src=\'{{ asset('images/001_18.png') }}\'/>')"><img src="{{ asset('images/001_19.png') }}" /></a>{% endif %}</td>
+            <td><a href="{{ path('empleado_show', { 'id': empleado.id }) }}">Ver</a></td>
             <td>{{ empleado.cedula|number_format(0, ',', '.') }}</td>
             <td>{{ empleado.nombres }}</td>
             <td>{{ empleado.apellidos }}</td>
             <td>{{ empleado.estado }}</td>
         </tr>
 {% endfor %}
-</table>    
+</table>
+<div id="loading_indicator">
+    <div>Procesando...</div>
+</div>
+
+<script id="votar-confirmation" type="text/x-kendo-template">
+    <p class="votar-message">¿Esta seguro?</p>
+
+    <button class="votar-confirm k-button">Si</button>
+    <a href="#" class="votar-cancel">No</a>
+</script>
+
+<script id="votar-respuesta" type="text/x-kendo-template">
+    <p class="votar-message">El voto fue procesado</p>
+
+    <button class="votar-response k-button">Ok</button>
+</script>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#loading_indicator").hide();
+        $('#loading_indicator')
+        .ajaxStart(function() { $(this).show(); })
+        .ajaxStop(function() { $(this).hide(); });
+    });
+</script>
 {% endblock %}
