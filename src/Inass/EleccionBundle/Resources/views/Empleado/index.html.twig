@@ -10,7 +10,7 @@
 {# sorting of properties based on query components #}
             <th colspan="2"></th>
             <th>{{ pagination.sortable('Cédula', 'e.cedula')|raw }}</th>
-            <th{% if pagination.isSorted('e.nombres') %} class="sorted"{% endif %}>{{ pagination.sortable('Nombres', 'a.nombres')|raw }}</th>
+            <th{% if pagination.isSorted('e.nombres') %} class="sorted"{% endif %}>{{ pagination.sortable('Nombres', 'e.nombres')|raw }}</th>
             <th>{{ pagination.sortable('Apellidos', 'e.apellidos')|raw }}</th>
             <th>Estado</th>
         </tr>
