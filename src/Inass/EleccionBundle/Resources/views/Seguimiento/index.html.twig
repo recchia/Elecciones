@@ -4,28 +4,32 @@
 {% block content %}
 <h1>Lista de Seguimientos</h1>
 
-<table class="records_list">
+<table class="zebra">
     <thead>
         <tr>
             <th>Id</th>
+            <th>Estado</th>
             <th>Votos</th>
             <th>Fecha</th>
             <th>Actions</th>
         </tr>
     </thead>
-    <tbody>
-    {% for entity in entities %}
+    <tfoot>
         <tr>
-            <td><a href="{{ path('seguimiento_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <th colspan="5"><div class="navigation">{{ pagination.render()|raw }}</div></th>
+        </tr>
+    </tfoot>
+    <tbody>
+    {% for entity in pagination %}
+        <tr>
+            <td>{{ entity.id }}</td>
+            <td>{{ entity.estado }}</td>
             <td>{{ entity.votos }}</td>
             <td>{% if entity.fecha %}{{ entity.fecha|date('Y-m-d H:i:s') }}{% endif %}</td>
             <td>
                 <ul>
                     <li>
-                        <a href="{{ path('seguimiento_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('seguimiento_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('seguimiento_show', { 'id': entity.id }) }}">mostrar</a>
                     </li>
                 </ul>
             </td>

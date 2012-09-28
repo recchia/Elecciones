@@ -24,9 +24,10 @@
 <ul class="record_actions">
     <li>
         <a href="{{ path('seguimiento') }}">
-            Back to the list
+            Listado
         </a>
     </li>
+    {% if is_granted('ROLE_ADMIN') %}
     <li>
         <a href="{{ path('seguimiento_edit', { 'id': entity.id }) }}">
             Edit
@@ -38,5 +39,6 @@
             <button type="submit">Delete</button>
         </form>
     </li>
+    {% endif %}
 </ul>
 {% endblock %}

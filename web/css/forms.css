@@ -9,10 +9,20 @@
     margin-top: 8em;
     margin-left: auto;
     margin-right: auto;
-    width: 30%;
+    width: 20%;
 }
 
-#fos_bundle label {
-    display: inline-block;
-    width: 10em;
+#fos_bundle label, input {
+    display: block;
+}
+
+#seguimiento-form {
+    margin-top: 8em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 24%;
+}
+
+#seguimiento-form label, input {
+    display: block;
 }

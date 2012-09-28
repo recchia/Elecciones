@@ -11,8 +11,7 @@ class SeguimientoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('votos')
-            ->add('fecha')
+            ->add('votos', null, array('attr' => array('class' => 'class="k-textbox"', 'size' => '5')))
             ->add('estado')
         ;
     }

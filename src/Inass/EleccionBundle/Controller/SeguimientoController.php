@@ -25,13 +25,11 @@ class SeguimientoController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('EleccionBundle:Seguimiento')->findAll();
-
-        return array(
-            'entities' => $entities,
-        );
+        $em = $this->get('doctrine.orm.entity_manager');
+        $query = $em->createQuery("SELECT s.id, s.votos, s.fecha, e.nombre as estado FROM EleccionBundle:Seguimiento s JOIN s.estado e");
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate($query, $this->get('request')->query->get('pagina', 1), 10);
+        return compact('pagination');
     }
 
     /**
@@ -90,7 +88,10 @@ class SeguimientoController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $estado = $em->getRepository('EleccionBundle:Estado')->find($entity->getEstado()->getId());
+            $estado->setVotos($entity->getVotos());
             $em->persist($entity);
+            $em->persist($estado);
             $em->flush();
 
             return $this->redirect($this->generateUrl('seguimiento_show', array('id' => $entity->getId())));

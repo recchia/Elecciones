@@ -2,20 +2,31 @@
 
 
 {% block content %}
-<h1>Seguimiento creation</h1>
+<div id="seguimiento-form">
+<h1>Nuevo Seguimiento</h1>
 
 <form action="{{ path('seguimiento_create') }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
-    <p>
-        <button type="submit">Create</button>
+    <p style="margin: 0.5em 0.5em 0.5em 0;">
+        <button type="submit" class="k-button">Guardar</button>
     </p>
 </form>
 
 <ul class="record_actions">
     <li>
         <a href="{{ path('seguimiento') }}">
-            Back to the list
+            Listado
         </a>
     </li>
 </ul>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#inass_eleccionbundle_seguimientotype_estado").kendoComboBox();
+    });
+</script>
 {% endblock %}

@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table()
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks
  */
 class Seguimiento
 {
@@ -121,5 +122,13 @@ class Seguimiento
     public function getEstado()
     {
         return $this->estado;
+    }
+    
+    /**
+     * @ORM\PrePersist
+     */
+    public function setFechaActual()
+    {
+        $this->fecha = new \DateTime('now');
     }
 }

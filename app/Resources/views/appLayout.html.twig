@@ -35,11 +35,20 @@
                 </ul>
             </li>
             <li>
+                Adultos
+                <ul>
+                    <li><a href="{{ path("seguimiento") }}">Listar Seguimientos</a></li>
+                    <li><a href="{{ path("seguimiento_new") }}">Nuevo Seguimiento</a></li>
+                </ul>
+            </li>
+            {% if is_granted('ROLE_ADMIN') %}
+            <li>
                 Administración
                 <ul>
                     <li><a href="{{ path("estado") }}">Lista de Estados</a></li>
                 </ul>
             </li>
+            {% endif %}
         </ul>
         {% else %}
         <ul id="miMenu">

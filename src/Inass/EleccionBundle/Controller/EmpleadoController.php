@@ -76,5 +76,21 @@ class EmpleadoController extends Controller
             return new \Symfony\Component\HttpFoundation\Response("Acceso Denegado");
         }
     }
+    
+    /**
+     * Buscar empleado y mostrarlo
+     * 
+     * @Route("/buscar", name="empleado_buscar")
+     * @Template()
+     */
+    public function buscarAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository('EleccionBundle:Empleado')->findOneBy(array('cedula' => $request->request->get('cedula')));
+        return array(
+            'empleado' => $entity,
+            'cedula' => $request->request->get('cedula')
+            );
+    }
 
 }

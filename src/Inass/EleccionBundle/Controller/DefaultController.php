@@ -16,4 +16,12 @@ class DefaultController extends Controller
     {
         return array();
     }
+    
+    /**
+     * @Route("/data", name="datos_grafico")
+     */
+    public function dataAction()
+    {
+        
+    }
 }
