@@ -55,3 +55,13 @@ table a {
 .navigation {
     text-align: center;
 }
+
+.zebra tbody tr:hover {
+    background-color: #2F2F2F;
+    color: #FFFFFF;
+}
+
+.zebra tbody tr:nth-child(2n):hover {
+    background-color: #2F2F2F;
+    color: #FFFFFF;
+}

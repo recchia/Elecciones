@@ -27,7 +27,16 @@ class Estado
      * @ORM\Column(name="nombre", type="string", length=100)
      */
     private $nombre;
-
+    
+    /**
+     * @ORM\Column(name="votantes", type="integer", nullable=true)
+     */
+    private $votantes;
+    
+    /**
+     * @ORM\Column(name="votos", type="integer", nullable=true)
+     */
+    private $votos;
 
     /**
      * Get id
@@ -60,5 +69,60 @@ class Estado
     public function getNombre()
     {
         return $this->nombre;
+    }
+
+    /**
+     * Set votantes
+     *
+     * @param integer $votantes
+     * @return Estado
+     */
+    public function setVotantes($votantes)
+    {
+        $this->votantes = $votantes;
+    
+        return $this;
+    }
+
+    /**
+     * Get votantes
+     *
+     * @return integer 
+     */
+    public function getVotantes()
+    {
+        return $this->votantes;
+    }
+
+    /**
+     * Set votos
+     *
+     * @param integer $votos
+     * @return Estado
+     */
+    public function setVotos($votos)
+    {
+        $this->votos = $votos;
+    
+        return $this;
+    }
+
+    /**
+     * Get votos
+     *
+     * @return integer 
+     */
+    public function getVotos()
+    {
+        return $this->votos;
+    }
+    
+    /**
+     * toString
+     * 
+     * @return string $nombre
+     */
+    public function __toString() {
+        return $this->getNombre();
     }
 }

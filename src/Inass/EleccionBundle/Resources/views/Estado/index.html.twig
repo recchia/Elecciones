@@ -1,0 +1,47 @@
+{% extends "::appLayout.html.twig" %}
+
+
+{% block content %}
+<h1>Lista de Estados</h1>
+
+<table class="zebra">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Votantes</th>
+            <th>Votos</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <td>&nbsp;</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tfoot>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td>{{ entity.id }}</td>
+            <td>{{ entity.nombre }}</td>
+            <td>{{ entity.votantes }}</td>
+            <td>{{ entity.votos }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('estado_show', { 'id': entity.id }) }}">mostrar</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('estado_edit', { 'id': entity.id }) }}">editar</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

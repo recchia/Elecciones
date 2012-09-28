@@ -1,0 +1,21 @@
+{% extends "::appLayout.html.twig" %}
+
+
+{% block content %}
+<h1>Estado creation</h1>
+
+<form action="{{ path('estado_create') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <p>
+        <button type="submit">Create</button>
+    </p>
+</form>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('estado') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}
