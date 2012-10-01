@@ -94,7 +94,8 @@ class SeguimientoController extends Controller
             $em->persist($estado);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('seguimiento_show', array('id' => $entity->getId())));
+            //return $this->redirect($this->generateUrl('seguimiento_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('seguimiento'));
         }
 
         return array(

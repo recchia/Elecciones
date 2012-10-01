@@ -9,24 +9,24 @@
 {% block javascripts %}
 {{ parent() }}
 <script type="text/javascript" src="{{ asset('js/highcharts/highcharts.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/highcharts/modules/exporting.js') }}"></script>
 <script type="text/javascript">
 $(function () {
     var chart;
     $(document).ready(function() {
     	
     	// Radialize the colors
-		Highcharts.getOptions().colors = $.map(Highcharts.getOptions().colors, function(color) {
-		    return {
-		        radialGradient: { cx: 0.5, cy: 0.3, r: 0.7 },
-		        stops: [
-		            [0, color],
-		            [1, Highcharts.Color(color).brighten(-0.3).get('rgb')] // darken
-		        ]
-		    };
-		});
+        Highcharts.getOptions().colors = $.map(Highcharts.getOptions().colors, function(color) {
+            return {
+                radialGradient: { cx: 0.5, cy: 0.3, r: 0.7 },
+                stops: [
+                    [0, color],
+                    [1, Highcharts.Color(color).brighten(-0.3).get('rgb')] // darken
+                ]
+            };
+        });
 		
-		// Build the chart
-        chart = new Highcharts.Chart({
+        empleados = new Highcharts.Chart({
             chart: {
                 renderTo: 'grafico-empleados',
                 plotBackgroundColor: null,
@@ -34,7 +34,7 @@ $(function () {
                 plotShadow: false
             },
             title: {
-                text: 'Gráfico de Votos a nivel nacional'
+                text: 'Gráfico de Votos a nivel nacional Empleados'
             },
             tooltip: {
         	    pointFormat: '{series.name}: <b>{point.percentage}%</b>',
@@ -49,7 +49,7 @@ $(function () {
                         color: '#000000',
                         connectorColor: '#000000',
                         formatter: function() {
-                            return '<b>'+ this.point.name +'</b>: '+ this.percentage +' %';
+                            return '<b>'+ this.point.name +'</b>: '+Highcharts.numberFormat(this.y, 0,',','.')+' = '+ Highcharts.numberFormat(this.percentage, 2, ',','.') +' %';
                         }
                     }
                 }
@@ -58,30 +58,73 @@ $(function () {
                 type: 'pie',
                 name: 'Porcentaje',
                 data: [
-                    ['Votantes',     700],
-                    ['Votos',   300]
+                    ['Votos Posibles',     700],
+                    ['Votos Efectivos',   300]
                 ]
+            }]
+        });
+        
+        adultos = new Highcharts.Chart({
+            chart: {
+                renderTo: 'grafico-adultos',
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: {
+                text: 'Gráfico de Votos a nivel nacional Adultos'
+            },
+            tooltip: {
+        	    pointFormat: '{series.name}: <b>{point.percentage}%</b>',
+            	percentageDecimals: 1
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        color: '#000000',
+                        connectorColor: '#000000',
+                        formatter: function() {
+                            return '<b>'+ this.point.name +'</b>: '+Highcharts.numberFormat(this.y, 0,',','.')+' = '+ Highcharts.numberFormat(this.percentage, 2, ',','.') +' %';
+                        }
+                    }
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: 'Porcentaje',
+                data: []
             }]
         });
     });
     
-    function requestData() {
+    
+    function requestDataEmpleado() {
     $.ajax({
-        url: '{{ path("datos_grafico") }}',
-        success: function(point) {
-            var series = chart.series[0],
-                shift = series.data.length > 20; // shift if the series is longer than 20
-
-            // add the point
-            chart.series[0].addPoint(point, true, shift);
-            
-            // call it again after one second
-            setTimeout(requestData, 1000);    
+        url: '{{ path("datos_grafico_empleados") }}',
+        success: function(jsonEmpleados) {
+            empleados.series[0].setData(jsonEmpleados, true);
+            setTimeout(requestDataEmpleado, 9000);    
         },
         cache: false
         });
     }
     
+    function requestDataAdultos() {
+    $.ajax({
+        url: '{{ path("datos_grafico_adultos") }}',
+        success: function(jsonAdultos) {
+            adultos.series[0].setData(jsonAdultos, true);
+            setTimeout(requestDataAdultos, 16000);    
+        },
+        cache: false
+        });
+    }
+    
+    requestDataEmpleado();
+    requestDataAdultos();
 });
 </script>
 {% endblock %}

@@ -28,8 +28,8 @@
         <tr>
             <td>{{ entity.id }}</td>
             <td>{{ entity.nombre }}</td>
-            <td>{{ entity.votantes }}</td>
-            <td>{{ entity.votos }}</td>
+            <td>{{ entity.votantes|number_format(0, ',', '.') }}</td>
+            <td>{{ entity.votos|number_format(0, ',', '.') }}</td>
             <td>
                 <ul>
                     <li>

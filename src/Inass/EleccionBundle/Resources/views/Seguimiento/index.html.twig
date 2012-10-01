@@ -16,7 +16,7 @@
     </thead>
     <tfoot>
         <tr>
-            <th colspan="5"><div class="navigation">{{ pagination.render()|raw }}</div></th>
+            <td colspan="5"><div class="navigation">{{ pagination.render()|raw }}</div></td>
         </tr>
     </tfoot>
     <tbody>
@@ -24,7 +24,7 @@
         <tr>
             <td>{{ entity.id }}</td>
             <td>{{ entity.estado }}</td>
-            <td>{{ entity.votos }}</td>
+            <td>{{ entity.votos|number_format(0, ',', '.') }}</td>
             <td>{% if entity.fecha %}{{ entity.fecha|date('Y-m-d H:i:s') }}{% endif %}</td>
             <td>
                 <ul>

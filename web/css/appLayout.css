@@ -106,3 +106,13 @@ input {
     color: #fff;
     font-weight: bold;
 }
+
+#grafico-empleados {
+    width: 49%;
+    float: left;
+}
+
+#grafico-adultos {
+    width: 49%;
+    float: right;
+}
