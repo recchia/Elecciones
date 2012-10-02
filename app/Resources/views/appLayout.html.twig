@@ -40,6 +40,13 @@
                     <li><a href="{{ path("seguimiento_new") }}">Nuevo Seguimiento</a></li>
                 </ul>
             </li>
+            <li>
+                Novedades
+                <ul>
+                    <li><a href="{{ path("novedad") }}">Listar Novedades</a></li>
+                    <li><a href="{{ path("novedad_new") }}">Nueva Novedad</a></li>
+                </ul>
+            </li>
             {% if is_granted('ROLE_ADMIN') %}
             <li>
                 Administración

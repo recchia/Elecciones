@@ -116,3 +116,17 @@ input {
     width: 49%;
     float: right;
 }
+
+#filtros {
+    clear: both;
+    margin-top: 0.5em;
+}
+
+#novedades {
+    clear: both;
+}
+
+#novedades h1 {
+    text-align: center;
+    margin-top: 1em;
+}

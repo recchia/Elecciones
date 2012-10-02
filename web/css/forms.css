@@ -16,13 +16,17 @@
     display: block;
 }
 
-#seguimiento-form {
+#app-form {
     margin-top: 8em;
     margin-left: auto;
     margin-right: auto;
     width: 24%;
 }
 
-#seguimiento-form label, input {
+#app-form label, input {
     display: block;
+}
+
+#app-form textarea {
+    width: 20em;
 }
