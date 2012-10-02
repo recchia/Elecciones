@@ -2,26 +2,30 @@
 
 
 {% block content %}
-<h1>Seguimiento edit</h1>
+<div id="app-form">
+<h1>Editar Seguimiento</h1>
 
 <form action="{{ path('seguimiento_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
     {{ form_widget(edit_form) }}
     <p>
-        <button type="submit">Edit</button>
+        <button type="submit">Editar</button>
     </p>
 </form>
 
 <ul class="record_actions">
     <li>
         <a href="{{ path('seguimiento') }}">
-            Back to the list
+            Listado
         </a>
     </li>
+    {% if is_granted('ROLE_ADMIN') %}
     <li>
         <form action="{{ path('seguimiento_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
+            <button type="submit">Eliminar</button>
         </form>
     </li>
+    {% endif %}
 </ul>
+</div>
 {% endblock %}

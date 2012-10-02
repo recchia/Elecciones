@@ -1,8 +1,7 @@
 {% extends "::appLayout.html.twig" %}
 
-
 {% block content %}
-<h1>Seguimiento</h1>
+<h1>Novedad</h1>
 
 <table class="record_properties">
     <tbody>
@@ -11,32 +10,32 @@
             <td>{{ entity.id }}</td>
         </tr>
         <tr>
-            <th>Votos</th>
-            <td>{{ entity.votos }}</td>
+            <th>Evento</th>
+            <td>{{ entity.evento }}</td>
         </tr>
         <tr>
-            <th>Fecha</th>
-            <td>{{ entity.fecha|date('Y-m-d H:i:s') }}</td>
+            <th>Accion</th>
+            <td>{{ entity.accion }}</td>
         </tr>
     </tbody>
 </table>
 
 <ul class="record_actions">
     <li>
-        <a href="{{ path('seguimiento') }}">
+        <a href="{{ path('novedad') }}">
             Listado
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('novedad_edit', { 'id': entity.id }) }}">
+            Editar
         </a>
     </li>
     {% if is_granted('ROLE_ADMIN') %}
     <li>
-        <a href="{{ path('seguimiento_edit', { 'id': entity.id }) }}">
-            Editar
-        </a>
-    </li>
-    <li>
-        <form action="{{ path('seguimiento_delete', { 'id': entity.id }) }}" method="post">
+        <form action="{{ path('novedad_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
-            <button type="submit">Eliminar</button>
+                <button type="submit" class="k-button">Eliminar</button>
         </form>
     </li>
     {% endif %}

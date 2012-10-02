@@ -1,15 +1,17 @@
 {% extends "::appLayout.html.twig" %}
 
-
 {% block content %}
 <div id="filtros">
     <form action="{{ path("grafico_estado") }}" method="post">
         <label for="estados">Filtro por Estado</label>
         <select id="estado" name="estado">
-            <option value="0">** Seleccione **</option>
             {% if estados %}
-                {% for estado in estados %}
-                <option value="{{ estado.id }}">{{ estado.nombre }}</option>
+                {% for row in estados %}
+                    {% if row.id != estado %}
+                        <option value="{{ row.id }}">{{ row.nombre }}</option>
+                    {% else %}
+                        <option value="{{ row.id }}" selected="selected">{{ row.nombre }}</option>
+                    {% endif %}
                 {% endfor %}
             {% endif %}
         </select>
@@ -19,7 +21,7 @@
 <div id="grafico-empleados"></div>
 <div id="grafico-adultos"></div>
 <div id="novedades">
-    <h1>Lista de Novedades</h1>
+    <h1>Lista de Novedades Estado {{ titulo }}</h1>
     <table class="zebra">
         <thead>
             <tr>
@@ -76,7 +78,7 @@ $(function () {
                 plotShadow: false
             },
             title: {
-                text: 'Gráfico de Votos a nivel nacional Empleados'
+                text: 'Gráfico de Votos Empleados Estado {{ titulo }}'
             },
             tooltip: {
         	    pointFormat: '{series.name}: <b>{point.percentage}%</b>',
@@ -111,7 +113,7 @@ $(function () {
                 plotShadow: false
             },
             title: {
-                text: 'Gráfico de Votos a nivel nacional Adultos'
+                text: 'Gráfico de Votos Adultos Estado {{ titulo }}'
             },
             tooltip: {
         	    pointFormat: '{series.name}: <b>{point.percentage}%</b>',
@@ -142,7 +144,9 @@ $(function () {
     
     function requestDataEmpleado() {
     $.ajax({
-        url: '{{ path("datos_grafico_empleados") }}',
+        url: '{{ path("datos_grafico_empleados_x_estado") }}',
+        data: { id: {{ estado }}},
+        type: "POST",
         success: function(jsonEmpleados) {
             empleados.series[0].setData(jsonEmpleados, true);
             setTimeout(requestDataEmpleado, 9000);    
@@ -153,7 +157,9 @@ $(function () {
     
     function requestDataAdultos() {
     $.ajax({
-        url: '{{ path("datos_grafico_adultos") }}',
+        url: '{{ path("datos_grafico_adultos_x_estado") }}',
+        data: { id: {{ estado }}},
+        type: "POST",
         success: function(jsonAdultos) {
             adultos.series[0].setData(jsonAdultos, true);
             setTimeout(requestDataAdultos, 16000);    

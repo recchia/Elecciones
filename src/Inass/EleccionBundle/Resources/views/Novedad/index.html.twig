@@ -1,0 +1,50 @@
+{% extends "::appLayout.html.twig" %}
+
+{% block content %}
+<h1>Listado de Novedades</h1>
+
+<table class="zebra">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Evento</th>
+            <th>Accion</th>
+            <th>Estado</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <td colspan="5"><div class="navigation">{{ pagination.render()|raw }}</div></td>
+        </tr>
+    </tfoot>
+    <tbody>
+    {% for entity in pagination %}
+        <tr>
+            <td>{{ entity.id }}</td>
+            <td>{{ entity.evento }}</td>
+            <td>{{ entity.accion }}</td>
+            <td>{{ entity.estado }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('novedad_show', { 'id': entity.id }) }}">ver</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('novedad_edit', { 'id': entity.id }) }}">editar</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('novedad_new') }}">
+            Nueva Novedad
+        </a>
+    </li>
+</ul>
+{% endblock %}

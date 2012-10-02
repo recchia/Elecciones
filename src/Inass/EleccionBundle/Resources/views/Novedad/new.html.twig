@@ -1,20 +1,19 @@
 {% extends "::appLayout.html.twig" %}
 
-
 {% block content %}
 <div id="app-form">
-<h1>Nuevo Seguimiento</h1>
+<h1>Nueva Novedad</h1>
 
-<form action="{{ path('seguimiento_create') }}" method="post" {{ form_enctype(form) }}>
+<form action="{{ path('novedad_create') }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
-    <p style="margin: 0.5em 0.5em 0.5em 0;">
+        <p style="margin-top: 0.5em;">
         <button type="submit" class="k-button">Guardar</button>
     </p>
 </form>
 
 <ul class="record_actions">
     <li>
-        <a href="{{ path('seguimiento') }}">
+        <a href="{{ path('novedad') }}">
             Listado
         </a>
     </li>
@@ -26,7 +25,7 @@
 {{ parent() }}
 <script type="text/javascript">
     $(document).ready(function(){
-        $("#inass_eleccionbundle_seguimientotype_estado").kendoComboBox();
+        $("#inass_eleccionbundle_novedadtype_estado").kendoComboBox();
     });
 </script>
 {% endblock %}

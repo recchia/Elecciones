@@ -1,0 +1,39 @@
+{% extends "::appLayout.html.twig" %}
+
+{% block content %}
+<div id="app-form">
+<h1>Editar Novedad</h1>
+
+<form action="{{ path('novedad_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+    {{ form_widget(edit_form) }}
+    <p>
+        <button type="submit" class="k-button">Editar</button>
+    </p>
+</form>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('novedad') }}">
+            Listado
+        </a>
+    </li>
+    {% if is_granted('ROLE_ADMIN') %}
+    <li>
+        <form action="{{ path('novedad_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+                <button type="submit" class="k-button">Eliminar</button>
+        </form>
+    </li>
+    {% endif %}
+</ul>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#inass_eleccionbundle_novedadtype_estado").kendoComboBox();
+    });
+</script>
+{% endblock %}
