@@ -92,5 +92,27 @@ class EmpleadoController extends Controller
             'cedula' => $request->request->get('cedula')
             );
     }
+    
+    /**
+     * Mostrar consolidado de Empleados
+     * 
+     * @Route("/reporte", name="reporte_empleados")
+     * @Template()
+     */
+    public function reporteAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $sql = "SELECT n1.estado, votantes, votos FROM ";
+        $sql.= "(SELECT est.nombre AS estado, count(emp.*) AS votantes ";
+        $sql.= "FROM empleado emp, estado est WHERE emp.estado_id = est.id GROUP BY est.nombre) n1 ";
+        $sql.= "LEFT JOIN (SELECT est.nombre AS estado, count(emp.id) AS votos ";
+        $sql.= "FROM empleado emp, estado est WHERE emp.voto = true AND emp.estado_id = est.id GROUP BY est.nombre) n2 ";
+        $sql.= "ON (n2.estado = n1.estado)";
+        $reporte = $em->getConnection()->fetchAll( $sql );
+        
+        return array(
+            'reporte' => $reporte
+        );
+    }
 
 }
