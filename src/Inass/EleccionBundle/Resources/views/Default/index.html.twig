@@ -58,7 +58,7 @@ $(function () {
     $(document).ready(function() {
     	
     	// Radialize the colors
-        Highcharts.getOptions().colors = $.map(Highcharts.getOptions().colors, function(color) {
+        /*Highcharts.getOptions().colors = $.map(Highcharts.getOptions().colors, function(color) {
             return {
                 radialGradient: { cx: 0.5, cy: 0.3, r: 0.7 },
                 stops: [
@@ -66,7 +66,7 @@ $(function () {
                     [1, Highcharts.Color(color).brighten(-0.3).get('rgb')] // darken
                 ]
             };
-        });
+        });*/
 		
         empleados = new Highcharts.Chart({
             chart: {
@@ -75,6 +75,7 @@ $(function () {
                 plotBorderWidth: null,
                 plotShadow: false
             },
+            colors: ['#620303', '#2D578C'],
             title: {
                 text: 'Gráfico de Votos a nivel nacional Empleados'
             },
@@ -110,6 +111,7 @@ $(function () {
                 plotBorderWidth: null,
                 plotShadow: false
             },
+            colors: ['#620303', '#2D578C'],
             title: {
                 text: 'Gráfico de Votos a nivel nacional Adultos'
             },
