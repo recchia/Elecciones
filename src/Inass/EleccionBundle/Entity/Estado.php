@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Inass\EleccionBundle\Entity\Estado
  *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Inass\EleccionBundle\Entity\EstadoRepository")
  */
 class Estado
 {

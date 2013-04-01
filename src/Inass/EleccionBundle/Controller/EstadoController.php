@@ -27,7 +27,7 @@ class EstadoController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('EleccionBundle:Estado')->findAll();
+        $entities = $em->getRepository('EleccionBundle:Estado')->findAllOrderedByNombre();
 
         return array(
             'entities' => $entities,
